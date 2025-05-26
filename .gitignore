@@ -78,5 +78,7 @@ crashlytics-build.properties
 
 Assets/TextMesh Pro
 
+UserSettings/
+
 # .DS_Store
 .DS_Store
