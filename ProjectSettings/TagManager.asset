@@ -7,6 +7,8 @@ TagManager:
   - Enenmy
   - Obstacle
   - InstantDeath
+  - VertStart
+  - VertEnd
   layers:
   - Default
   - TransparentFX
@@ -14,7 +16,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - CameraCollision
   - 
   - 
   - 
