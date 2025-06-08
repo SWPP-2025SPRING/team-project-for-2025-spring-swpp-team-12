@@ -23,6 +23,12 @@ public class Health : MonoBehaviour, IDamageable
     protected bool isInvincible = false;
     [SerializeField] protected float invincibleDuration = 0f;
 
+    protected bool isShieldMode = false;
+    [SerializeField] protected float shieldDuration = 0f;
+    [SerializeField] protected int damageReductionFactor = 0;
+    private Coroutine shieldCoroutine;
+
+    
     void Awake()
     {
         currentHealth = maxHealth;
@@ -42,6 +48,21 @@ public class Health : MonoBehaviour, IDamageable
     public void ChangeHealth(int amount)
     {
         if (isInvincible) return;
+        if (isShieldMode)
+        {
+            // 무적 쉴드라면 (reductionFactor == 0), 완전 무시
+            if (damageReductionFactor == 0)
+            {
+                //Debug.Log($"[Health] Shield active - damage fully blocked");
+                return;
+            }
+
+            int reducedAmount = Mathf.RoundToInt(amount / damageReductionFactor);
+            //Debug.Log($"[Health] Shield active - damage reduced: {amount} -> {reducedAmount}");
+            amount = reducedAmount;
+
+            
+        }
 
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
@@ -57,6 +78,19 @@ public class Health : MonoBehaviour, IDamageable
         {
             StartCoroutine(InvincibleCoroutine());
         }
+    }
+
+    public void ShieldMode(float duration, int reductionFactor)
+    {
+        shieldDuration = duration;
+        damageReductionFactor = reductionFactor;
+
+        if (shieldCoroutine != null)
+        {
+            StopCoroutine(shieldCoroutine);
+        }
+
+        shieldCoroutine = StartCoroutine(ShieldCoroutine());
     }
 
     // IEnumerator ShakeHealthBar()
@@ -75,6 +109,15 @@ public class Health : MonoBehaviour, IDamageable
         isInvincible = true;
         yield return new WaitForSeconds(invincibleDuration);
         isInvincible = false;
+    }
+
+    protected IEnumerator ShieldCoroutine()
+    {
+        isShieldMode = true;
+        yield return new WaitForSeconds(shieldDuration);
+        isShieldMode = false;
+        damageReductionFactor = 0;
+        shieldCoroutine = null; // 코루틴 종료 처리
     }
 
     void Die()
