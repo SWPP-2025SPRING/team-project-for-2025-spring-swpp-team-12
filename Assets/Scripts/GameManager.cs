@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public event Action OnGameOver;
 
     private bool isPaused = false;
+    private bool isBoost = false;
 
     [Serializable]
     public class HPChangedEvent : UnityEvent<int, int> { }
@@ -48,8 +49,6 @@ public class GameManager : MonoBehaviour
         OnGameStart?.Invoke();
     }
 
-
-
     public void PauseGame()
     {
         if (isPaused) return;
@@ -72,5 +71,21 @@ public class GameManager : MonoBehaviour
         isPaused = true;
         Time.timeScale = 0;
         OnGameOver?.Invoke();
+    }
+
+    // Boost 관련 메서드
+    public void SetBoost(bool value)
+    {
+        isBoost = value;
+    }
+
+    public bool IsBoosted()
+    {
+        return isBoost;
+    }
+
+    public float GetSpeedMultiplier()
+    {
+        return isBoost ? 1.5f : 1f;
     }
 }
