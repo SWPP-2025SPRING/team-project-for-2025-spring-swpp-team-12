@@ -97,8 +97,8 @@ public class PlayerMovement : MonoBehaviour
                 stamina.ChangeStamina(Mathf.RoundToInt(Time.deltaTime * 500), StaminaChangeType.Regen);
 
 
-            float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * vInput : 0;
-            float curSpeedZ = canMove ? (isRunning ? runSpeed : walkSpeed) * hInput : 0;
+            float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * GameManager.Instance.GetSpeedMultiplier() * vInput : 0;
+            float curSpeedZ = canMove ? (isRunning ? runSpeed : walkSpeed) * GameManager.Instance.GetSpeedMultiplier()* hInput : 0;
             float movementDirectionY = moveDirection.y;
             moveDirection = (forward * curSpeedX) + (right * curSpeedZ);
 
