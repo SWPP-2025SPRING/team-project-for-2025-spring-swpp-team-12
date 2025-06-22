@@ -9,7 +9,7 @@ public class GameClearTest : MonoBehaviour
 {
     void Start()
     {
-        StartCoroutine(TriggerGameClearAfterDelay());
+        // StartCoroutine(TriggerGameClearAfterDelay());
     }
 
     IEnumerator TriggerGameClearAfterDelay()

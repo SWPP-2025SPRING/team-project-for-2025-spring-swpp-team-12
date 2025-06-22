@@ -40,8 +40,11 @@ public class S2Enemy : Obstacle
         {
             laser.SetActive(false);
             box.enabled = false;
+            if (info.shortNameHash == Animator.StringToHash("Idle"))
+            {
+                LookAtPlayer();
+            }
         }
-        LookAtPlayer();
     }
     void LookAtPlayer()
     {
