@@ -112,6 +112,9 @@ public class PlayerMovement : MonoBehaviour
                 // Jump
                 animator.SetTrigger("t_jump");
                 moveDirection.y = jumpPower;
+                
+                // 점프 사운드 재생
+                AudioManager.Instance?.PlayJumpSound();
             }
             else
             {
