@@ -10,7 +10,7 @@ public class S1EnemyAttack : Obstacle
 
     void Start()
     {
-        Debug.Log(transform.parent.name);
+        // Debug.Log(transform.parent.name);
         anim = transform.parent?.GetComponent<Animator>();
         box = GetComponent<BoxCollider>();
     }
