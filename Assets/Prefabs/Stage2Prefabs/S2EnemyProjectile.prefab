@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7930742038513485353}
   - component: {fileID: 7930742038513485352}
-  - component: {fileID: 7930742038513485355}
+  - component: {fileID: 6393066900356566340}
   m_Layer: 0
   m_Name: S2EnemyProjectile
   m_TagString: Untagged
@@ -47,7 +47,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1, z: 0.5}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &7930742038513485355
+--- !u!114 &6393066900356566340
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,10 +56,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7930742038513485350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b5dc9bedea8d1448b3beedf6a0f804c, type: 3}
+  m_Script: {fileID: 11500000, guid: bb3f337a24e4a6d46b5bcdf48bb5d52e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToPlayer: 10
+  damageToPlayer: 30
+  moveSpeed: 3
+  rotateSpeed: 360
 --- !u!1001 &7930742037478523110
 PrefabInstance:
   m_ObjectHideFlags: 0

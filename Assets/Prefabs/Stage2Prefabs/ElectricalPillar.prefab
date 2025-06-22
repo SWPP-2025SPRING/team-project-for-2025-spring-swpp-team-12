@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 770740080451036174}
   - component: {fileID: 770740080451036173}
-  - component: {fileID: 2819745920881733336}
   - component: {fileID: 2819745920881733339}
   m_Layer: 0
   m_Name: ElectricalPillar
@@ -48,20 +47,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3, y: 7, z: 1.3}
   m_Center: {x: 0, y: 3.5, z: 0}
---- !u!114 &2819745920881733336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 770740080451036175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f39867bdd86a4631aa230b60bf02c89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: 8b708a0c9ab8fe849a438d2b601d2c24, type: 2}
-  destroyOnPickup: 0
 --- !u!114 &2819745920881733339
 MonoBehaviour:
   m_ObjectHideFlags: 0
