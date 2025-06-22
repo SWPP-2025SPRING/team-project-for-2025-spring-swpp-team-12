@@ -43,9 +43,15 @@ public class DropTile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("HitBox")) return;
-
-        Invoke("TriggerFall", Random.Range(0.1f, 0.5f));
+        if (other.CompareTag("HitBox"))
+        {
+            Invoke("TriggerFall", Random.Range(0.1f, 0.5f));
+        }
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Player hit by drop tile");
+            other.GetComponent<Health>().ChangeHealth(100);
+        }
     }
     
     

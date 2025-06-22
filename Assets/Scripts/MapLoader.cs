@@ -36,9 +36,12 @@ public class MapLoader : MonoBehaviour
         Direction prevDir = Direction.Back;    // All maps start from Front direction
         Direction lastHorizontalDir = Direction.Front; // Track last horizontal direction
         int x=0, y=0, z=0;
+        int n = map.chunks.Length;
+        int cnt = n;
         foreach (var chunk in map.chunks)
         {
-            BuildChunk(chunk, prevDir, lastHorizontalDir, x, y, z);
+            cnt--;
+            BuildChunk(chunk, prevDir, lastHorizontalDir, x, y, z, cnt);
             prevDir = chunk.dir;
             if (IsChunkHorizontal(chunk.dir))
             {
@@ -131,11 +134,11 @@ public class MapLoader : MonoBehaviour
         }
     }
 
-    bool ShouldSkipTile(int x, int y, int z, Direction prevDir)
+    bool ShouldSkipTile(int x, int y, int z, Direction prevDir, int cnt)
     {
         // Debug.Log("Direction");
         // Debug.Log(prevDir);
-        if (z == 8) return true;
+        if (z == 8 && cnt!= 0) return true;
 
         if (prevDir == Direction.Back && z == 0) return true;
         if (prevDir == Direction.Left && x == 0) return true;
@@ -170,7 +173,7 @@ public class MapLoader : MonoBehaviour
         return !(dir == Direction.Up || dir == Direction.Down);
     }
 
-    void BuildChunk(ChunkData chunk, Direction prevDir, Direction lastHorizontalDir, int cx, int cy, int cz)
+    void BuildChunk(ChunkData chunk, Direction prevDir, Direction lastHorizontalDir, int cx, int cy, int cz, int cnt)
     {
         // Debug.Log(prevDir);
         Vector3 chunkPos = new Vector3(cx, cy, cz);
@@ -192,12 +195,15 @@ public class MapLoader : MonoBehaviour
             int type = chunk.tiles[i];
             if (type == 0) continue;        // Air
 
-            // int y = i / 81;
-            // int z = i % 81 / 9;
-            // int x = i % 9;
-            int z = i / 81;
-            int y = 8 - (i % 81 / 9);
+            // Not used
+            int y = i / 81;
+            int z = i % 81 / 9;
             int x = i % 9;
+
+
+            // int z = i / 81;
+            // int y = 8 - (i % 81 / 9);
+            // int x = i % 9;
 
 
             Vector3 result = -(Quaternion.Inverse(rotation) * DirToVec(prevDir));
@@ -206,7 +212,7 @@ public class MapLoader : MonoBehaviour
                 Debug.Log("result");
                 Debug.Log(result);
             }
-            if (ShouldSkipTile(x, y, z, VecToDir(result))) continue;
+            if (ShouldSkipTile(x, y, z, VecToDir(result), cnt)) continue;
             
             if (type == 1 && y == 8 && IsChunkHorizontal(chunk.dir)) { isCeiling = true; }
 

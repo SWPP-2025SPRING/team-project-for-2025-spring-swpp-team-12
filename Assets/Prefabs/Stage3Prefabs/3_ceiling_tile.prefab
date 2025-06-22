@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5673280921691958191}
   - component: {fileID: 4371806687592982803}
   - component: {fileID: 4371806687592982801}
+  - component: {fileID: 400228856018999306}
   m_Layer: 0
   m_Name: 3_ceiling_tile
   m_TagString: Untagged
@@ -128,3 +129,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyDelay: 2
+--- !u!65 &400228856018999306
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7639062449300920675}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3, y: 1.3, z: 1.3}
+  m_Center: {x: 0, y: 0, z: 0}
