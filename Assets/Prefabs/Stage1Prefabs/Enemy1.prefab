@@ -154,6 +154,10 @@ PrefabInstance:
       propertyPath: m_WarningMessage
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 663c15deb9779234cbb04fc942a0169d, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 663c15deb9779234cbb04fc942a0169d, type: 3}
 --- !u!1 &5992842195989667147 stripped
@@ -174,19 +178,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.5270555, z: 0.46736145}
   m_Center: {x: 0, y: 0.7585447, z: -0.057068825}
---- !u!114 &6911815862863437847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5992842195989667147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ca25c0341b9c8b41958d42b7b21a75a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageToPlayer: 10
 --- !u!114 &6911815862863437840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +211,19 @@ MonoBehaviour:
   invincibleDuration: 1
   shieldDuration: 0
   damageReductionFactor: 0
+--- !u!114 &6911815862863437847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5992842195989667147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ca25c0341b9c8b41958d42b7b21a75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToPlayer: 10
 --- !u!4 &6368382984560560113 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 663c15deb9779234cbb04fc942a0169d, type: 3}
