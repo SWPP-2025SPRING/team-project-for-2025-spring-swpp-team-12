@@ -14,7 +14,7 @@ public enum StaminaChangeType
 [DisallowMultipleComponent]
 public class Stamina : MonoBehaviour
 {
-    [SerializeField] int maxStamina = 1000;
+    [SerializeField] int maxStamina = 3000;
     // [SerializeField] float recoveryRate = 10f; // 초당 회복량
 
     private int currentStamina;
@@ -61,7 +61,7 @@ public class Stamina : MonoBehaviour
         if (isStaminaUnavailable && (type==StaminaChangeType.Run)) return;
         if (isExhausted && type == StaminaChangeType.Regen)
         {
-            amount /= 2; // Reduce regen amount by half if exhausted
+            amount = Mathf.RoundToInt(amount * 0.8f);
         }
 
         currentStamina = Mathf.Clamp(currentStamina + amount, 0, maxStamina);
