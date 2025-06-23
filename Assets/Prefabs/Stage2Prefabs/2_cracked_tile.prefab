@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6174917561229115954}
   - component: {fileID: 4547691263549393253}
   - component: {fileID: 5790935797288166086}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2_cracked_tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
