@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8789497518025587807}
   - component: {fileID: 8687141922871460248}
   - component: {fileID: 5090568702367325728}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2_tile
-  m_TagString: Untagged
+  m_TagString: SafeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
