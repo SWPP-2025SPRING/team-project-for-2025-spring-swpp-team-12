@@ -20,7 +20,7 @@ public class LeaderBoardManager : MonoBehaviour
     private string fileName = "Files/leaderboard.json";
     private Leaderboard leaderboard = new Leaderboard();
 
-    private string FilePath => Path.Combine(Application.dataPath, fileName);
+    private string FilePath => Path.Combine(Application.persistentDataPath, fileName);
 
     public void LoadLeaderboard()
     {
@@ -29,8 +29,18 @@ public class LeaderBoardManager : MonoBehaviour
             string json = File.ReadAllText(FilePath);
             leaderboard = JsonUtility.FromJson<Leaderboard>(json);
             Debug.Log("Leaderboard loaded from " + FilePath);
-        }else{
+        }
+        else
+        {
             Debug.Log("No leaderboard file found, creating a new one.");
+
+            // 새로 빈 leaderboard 생성
+            leaderboard = new Leaderboard();
+
+            // 파일 저장
+            string json = JsonUtility.ToJson(leaderboard, true);
+            File.WriteAllText(FilePath, json);
+            Debug.Log("New empty leaderboard saved to " + FilePath);
         }
     }
 

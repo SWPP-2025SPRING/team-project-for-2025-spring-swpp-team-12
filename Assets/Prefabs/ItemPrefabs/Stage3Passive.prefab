@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: c26d6bf621877bb4596fd28d7c31b32a, type: 2}
+  destroyOnPickup: 1
+  pickupEffectPrefab: {fileID: 339158821923109191, guid: 108ca465382c11742bd2c91fe4fdb13f, type: 3}
 --- !u!65 &8685275
 BoxCollider:
   m_ObjectHideFlags: 0
